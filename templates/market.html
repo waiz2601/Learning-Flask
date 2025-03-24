@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Waiz Shopping Market - Your one-stop destination for all shopping needs.">
+    <meta name="keywords" content="shopping, market, online store, buy products">
+    <meta name="author" content="Waiz Shopping Market">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+
+    <title>Market Page</title>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Waiz Shopping Market</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to Waiz Shopping Market</h1>
+    <p class="lead">Your one-stop destination for all shopping needs.</p>
+</div>
+
+<!-- Products Table -->
+<div class="container mt-4">
+    <h2 class="text-center">Available Products</h2>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Barcode</th>
+                <th>Phone Number</th>
+                <th>Price (₹)</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in item_name %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.barcode }}</td>
+                <td>{{ item.phone_number }}</td>
+                <td>{{ item.price }}</td>
+                <td>
+                    <a href="/product/{{ item.id }}" class="btn btn-info btn-sm">More Info</a>
+                    <a href="/purchase/{{ item.id }}" class="btn btn-success btn-sm">Purchase</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
